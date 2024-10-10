@@ -1,0 +1,106 @@
+<style>
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+    }
+    .section-title {
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    .album {
+      padding-top: 3rem;
+    }
+    .card {
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .more-btn {
+      margin-top: 20px;
+      text-align: right; /* Set the button to align right */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container my-5">
+  <!-- Produk Makanan Section -->
+  <h2 class="section-title">Produk Makanan</h2>
+  <div class="album">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <% produk.forEach(data => { %>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="<%= data.foto %>" class="bd-placeholder-img card-img-top" alt="" width="100%" height="50%">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= data.nama %></h5>
+            
+                        <a href="#" class="btn btn-light">Info Produk </a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="more-btn">
+    <a href="#" class="btn btn-outline-primary">Produk Makanan Selengkapnya</a>
+  </div>
+</div>
+</div>
+
+  <div class="container my-5">
+    <!-- Produk Minuman Section -->
+    <h2 class="section-title">Produk Minuman</h2>
+    <div class="album">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          <% produkminuman.forEach(data => { %>
+              <div class="col">
+                  <div class="card h-100">
+                      <img src="<%= data.foto %>" class="bd-placeholder-img card-img-top" alt="" width="100%" height="50%">
+                      <div class="card-body">
+                          <h5 class="card-title"><%= data.nama %></h5>
+              
+                          <a href="#" class="btn btn-light">Info Produk </a>
+                      </div>
+                  </div>
+              </div>
+          <% }) %>
+        </div>
+      </div>
+      <br>
+      <div class="more-btn">
+        <a href="#" class="btn btn-outline-primary">Produk Minuman Selengkapnya</a>
+      </div>
+    </div>
+    <div class="container my-5">
+        <!-- Produk Obat Section -->
+        <h2 class="section-title">Produk Obat</h2>
+        <div class="album">
+          <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+              <% produkobat.forEach(data => { %>
+                  <div class="col">
+                      <div class="card h-100">
+                          <img src="<%= data.foto %>" class="bd-placeholder-img card-img-top" alt="" width="100%" height="50%">
+                          <div class="card-body">
+                              <h5 class="card-title"><%= data.nama %></h5>
+                  
+                              <a href="#" class="btn btn-light">Info Produk </a>
+                          </div>
+                      </div>
+                  </div>
+              <% }) %>
+            </div>
+          </div>
+          <br>
+          <div class="more-btn">
+            <a href="#" class="btn btn-outline-primary">Produk obat Selengkapnya</a>
+          </div>
+        </div>
