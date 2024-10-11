@@ -39,5 +39,31 @@ router.get("/stok",(req,res) => {
                 {kdbarang : 2232, namabarang:"susu",jumlahstok:530},
                 {kdbarang : 132, namabarang:"air mineral",jumlahstok:60}]
     })
-    
+
+});
+
+router.get("/pelanggan", (req, res) => {
+    res.json({
+        "status": "success",
+        "message": "Data Pelanggan",
+        "data": [
+            { kdPelanggan: 1, nama: "Donna", umur: 30, email: "donna@example.com" },
+            { kdPelanggan: 2, nama: "Ricky", umur: 25, email: "ricky@example.com" },
+            { kdPelanggan: 3, nama: "Angel", umur: 35, email: "angel@example.com" },
+            { kdPelanggan: 4, nama: "Nabila", umur: 28, email: "nabila@example.com" },
+            { kdPelanggan: 5, nama: "Pus", umur: 22, email: "pus@example.com" }
+        ]
+    });
+});
+
+app.get("/pegawai", (req, res) => {
+    res.json({
+        "status": "success",
+        "message": "Data Pegawai",
+        "data": [
+            { departemen: "HR", pegawai: ["Andi", "Budi", "Citra"] },
+            { departemen: "Keuangan", pegawai: ["Dina", "Eko", "Fani"] },
+            { departemen: "IT", pegawai: ["Gita", "Hadi", "Joko"] }
+        ]
+    });
 });
