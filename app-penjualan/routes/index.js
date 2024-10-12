@@ -56,7 +56,7 @@ router.get("/pelanggan", (req, res) => {
     });
 });
 
-app.get("/pegawai", (req, res) => {
+router.get("/pegawai", (req, res) => {
     res.json({
         "status": "success",
         "message": "Data Pegawai",
