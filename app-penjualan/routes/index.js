@@ -9,6 +9,23 @@ router.get('/', function(req, res, next) {
 router.get('/produk', function(req, res, next) {
   res.render('produk',{title: 'Halaman produk',produk,produkminuman,produkobat,layout:'main'});
 });
+
+/* GET pemesanan page. */
+router.get('/pemesanan', function(req, res, next) {
+  res.render('pemesanan', { title: 'Pemesanan', layout: 'main' });
+});
+
+/* POST pemesanan page. */
+router.post('/pemesanan', function(req, res, next) {
+    const { nama, email, pesanan, jumlah } = req.body;
+    const pricePerItem = 100; // Example price per item
+    const total = jumlah * pricePerItem; // Calculate total
+    const successMessage = `Terima kasih, ${nama}! Pesanan Anda untuk ${jumlah} ${pesanan} telah diterima. Total: Rp${total}.`;
+    
+    res.render('pemesanan', { title: 'Pemesanan', layout: 'main', successMessage });
+});
+
+
 const produk = [
   { nama: "lays" , foto: "./img/lays.jpeg" },
   { nama: "snack buah", foto: "./img/snack.jpg" },
