@@ -5,61 +5,62 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-    <h1><%= title %></h1>
+    <div class="container">
+        <h1><%= title %></h1>
 
-    <% if (typeof successMessage !== 'undefined') { %>
-        <p style="color: green;"><%= successMessage %></p>
-    <% } %>
+        <% if (typeof successMessage !== 'undefined') { %>
+            <p style="color: green;"><%= successMessage %></p>
+        <% } %>
 
-    <form action="/pemesanan" method="POST">
-        <fieldset>
-            <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
-            </div>
-            <div class="mb-3">
-                <label for="pesanan" class="form-label">Pesanan</label>
-                <select id="pesanan" name="pesanan" class="form-select" required>
-                    <option value="" disabled selected>Pilih Pesanan</option>
-                    <option value="Produk A">Produk A</option>
-                    <option value="Produk B">Produk B</option>
-                    <option value="Produk C">Produk C</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="jumlah" class="form-label">Jumlah</label>
-                <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah" min="1" required>
-            </div>
-            <div class="mb-3">
-                <label for="total" class="form-label">Total</label>
-                <input type="text" id="total" name="total" class="form-control" placeholder="Total" readonly>
-            </div>
-            <div class="mb-3">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terms" required>
-                    <label class="form-check-label" for="terms">
-                        I agree to the terms and conditions
-                    </label>
+        <form action="/pemesanan" method="POST">
+            <fieldset>
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama" required>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </fieldset>
-    </form>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="pesanan" class="form-label">Pesanan</label>
+                    <select id="pesanan" name="pesanan" class="form-select" required>
+                        <option value="" disabled selected>Pilih Pesanan</option>
+                        <option value="Produk A">Produk A</option>
+                        <option value="Produk B">Produk B</option>
+                        <option value="Produk C">Produk C</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="jumlah" class="form-label">Jumlah</label>
+                    <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah" min="1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="total" class="form-label">Total</label>
+                    <input type="text" id="total" name="total" class="form-control" placeholder="Total" readonly>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terms" required>
+                        <label class="form-check-label" for="terms">
+                            I agree to the terms and conditions
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </fieldset>
+        </form>
 
-    <a href="/">Kembali ke Halaman Utama</a>
+        <a href="/" class="btn btn-secondary">Kembali ke Halaman Utama</a>
+    </div>
 
     <script>
-        // Optional: You can add a script to calculate the total based on quantity and price
         const pricePerItem = 100; // Example price
         const jumlahInput = document.getElementById('jumlah');
         const totalInput = document.getElementById('total');
 
         jumlahInput.addEventListener('input', () => {
-            const jumlah = jumlahInput.value;
+            const jumlah = Number(jumlahInput.value); // Ensure the value is a number
             totalInput.value = jumlah * pricePerItem; // Update total based on quantity
         });
     </script>
